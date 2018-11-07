@@ -1,6 +1,6 @@
-### Docker学习笔记
+## Docker学习笔记
 
-#### 基本操作
+### 基本操作
 1. 下载一个docker镜像 <br>
    `docker pull centos`
 2. 查看镜像<br>
@@ -31,3 +31,23 @@
 `docker run -d -p 8082:8080 --name jarname images-name`
 - 开启docker服务<br>
 `systemctl restart docker.service`
+
+### 环境搭建
+1. 搜索镜像  
+`docker search image-name`
+- 下载镜像  
+`docker pull image-name`
+- 启动镜像  
+> 容器是在镜像的基础上运行的，一旦容器启动了，我们就可以登录到容器中，安装自己所需的软件或者应用程序。
+
+ 用法：`docker run <相关参数> <镜像 ID> <初始命令>`
+
+ ```
+ 1. docker run -i -t -v /usr/localhost/:/data/soft/ 196e0ce0c9fb /bin/bash
+  -i：表示以“交互模式”运行容器
+  -t：表示容器启动后会进入其命令行
+  -v：表示需要将本地哪个目录挂载到容器中，格式：-v <宿主机目录>:<容器目录>
+ ```
+ 初始命令表示一旦容器启动，需要运行的命令，此时使用“/bin/bash”，表示启动后直接进入bash shell。
+
+ 进入容器后，ctrl+d 或者exit命令， 退出容器
