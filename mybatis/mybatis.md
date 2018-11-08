@@ -14,3 +14,5 @@ http://www.mybatis.org/mybatis-3/zh/configuration.html
 - If:  <if test=”title != null” > And title like #{title}</if> 如果传入了title，那么进行模糊查询并返回BLOG结果。 否则返回上面要求的结果。  
 - Choose，when, otherwise:choose和switch类似。
 - SqlSession:执行持久化操作，类似于JDBC中的Connection.应用程序与持久层之间执行交互操作的一个单线程对象。底层封装了JDBC连接，可以用SqlSession实例来直接执行被映射的SQL语句。
+
+### 分页插件PageHelper的使用
