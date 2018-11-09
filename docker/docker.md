@@ -51,3 +51,26 @@
  初始命令表示一旦容器启动，需要运行的命令，此时使用“/bin/bash”，表示启动后直接进入bash shell。
 
  进入容器后，ctrl+d 或者exit命令， 退出容器
+
+
+### 配置springboot项目的环境
+- 拉取centos:6的镜像
+`docker pull centos:6`
+- 利用镜像启动一个容器  
+`docker run -i -t centos:6 /bin/bash`
+- 安装jdk1.8的所有文件  
+`yum install java-1.8.0-openjdk* -y`
+- 检查是否安装成功  
+`java -version`
+- 运行jar包命令   
+`java -jar sbd-0.0.1.jar --server.port=80`
+- 进入一个容器  
+`docker attach contianer-name`或者
+ `docker attach container-id`
+- 从容器里面拷贝文件到宿主机(在宿主机执行命令)  
+将容器里的test.js文件拷贝到宿主机opt目录下  
+`docker cp container-name：/usr/test.js /opt`
+- 从宿主机里面拷贝文件到容器(在宿主机执行命令)  
+将宿主机里的test.js文件拷贝到容器opt目录下  
+`docker cp  /opt container-name：/usr/test.js`
+>注意：前提是目录已经存在 创建目录命令：mkdir dirname
