@@ -69,6 +69,31 @@ private String var;
 xml和java对象互相转化
 -  @Repository,作用于持久层表明该类是用来执行数据库相关的操作，作为数据库的bean来使用，可以直接对数据库进行操作
 
+- @PathVariable: 微博两个不同用户的个人主页对应两个不同的URL,对于这个用户则可以用变量来表示。
+ - 定义url变量规则
+   @RequestMapping("/users/{username}")
+   {username}就是定义的变量部分
+   注意：变量中不能包含URL的分隔符/
+   @RequestMapping注解中用{}来表明变量部分。
+  - 获取url变量
+    ```
+    @RequestMapping("/users/{username}")
+   @ResponseBody
+   public String userProfile(@PathVariable String username){
+//        return String.format("user %s", username);
+       return "user" + username;
+   }
+    ```
+   在上述例子中，当@Controller处理HTTP请求时，userProfile的参数username会自动设置为URL中对应变量username（同名赋值）的值  
+   也可以指定@PathVariable使用URL中的哪一个变量
+   @PathVariable("username")
+
+
+
+
+
+
+
 
 
 ### JAXB

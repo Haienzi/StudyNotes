@@ -94,6 +94,16 @@ https://blog.csdn.net/bestone0213/article/details/47904107
 - `SAXReader`
 
 - `SessionFactory`
+负责初始化Hibernate,充当数据源的代理，并负责创建Session对象。可以得到Session实例，完成对象持久化操作，负责创建和关闭session对象。  
+Session是Hibernate持久化操作的基础。  
+```
+Session session = SessionFactory.openSession();
+```
+session持久化方法：
+增删改查
+ - save(Object o):保存实体
+ - flush()：将缓存中的数据持久化到数据库中，与数据库中的数据同步   
+ - saveOrUpdate():保存或者更新，id不存在的时候使用save()否则使用update()
 
 - Redis缓存
 https://blog.csdn.net/tianzongnihao/article/details/54924924
@@ -107,12 +117,21 @@ https://blog.csdn.net/tianzongnihao/article/details/54924924
 
 
 
+### 项目
+- 数据库操作类
+dao:
+接口定义:IBaseDao
+实现：BaseDao
+
+
 问题：
 1. core.listener.ServerListener.class中为什么要检查两次？
 第一步检查函数，序列，表，视图等是否存在。都存在的情况下开启第二轮检查，获取数据。
-
-
-
+2. 运行时浏览器总是出现401错误 中文乱码
+shrio service配置为自己电脑的ip地址，端口号和tomcat的端口号保持一致。tomcat启动时路径配置为shrio service保持一致。
+3. EMPI（Enterprise Master Patient index)  
+ 患者主索引：患者基本信息检索目录,主要用途是在一个复杂的医疗系统中，通过唯一的患者标识将多个医疗信息系统有效的关联在一起。。以实现各个系统之间的互联互通，保证对同一个患者，分布在不同系统中的个人信息采集的完整性和准确性。建立患者主索引是实现大型医院内部系统集成，医院集团内资源共享，以及建立居民健康档案实现区域医疗共享的必要条件。
+ 4. AlarmPersonImpl ->dto.getSearch();
 
 
 

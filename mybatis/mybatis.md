@@ -1,7 +1,9 @@
 ## Mybatis总结
 
 ### 基本概念
-持久层框架，支持定制SQL,存储过程以及高级映射。封装了JDBC代码，封装参数及获取数据集。使用简单的XML或注解来配置和映射原生信息，将接口和Java中的对象映射成数据库中的记录。
+ORM （Object Relational GetMapping），对象关系映射。   
+使数据库中的关系型数据映射为java中的对象。       
+持久层框架，支持定制SQL,存储过程以及高级映射。封装了JDBC代码，封装参数及获取数据集。使用简单的XML或注解来配置和映射原生信息，将接口和Java中的对象映射成数据库中的记录。  
 http://www.mybatis.org/mybatis-3/zh/configuration.html
 
 ### 配置
