@@ -88,7 +88,7 @@ xml和java对象互相转化
    也可以指定@PathVariable使用URL中的哪一个变量
    @PathVariable("username")
 
-
+- @Bean 作用到方法上告诉spring 可以从这个方法中得到一个bean
 
 
 
