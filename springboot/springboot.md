@@ -1,4 +1,35 @@
+
 ## Spring boot
+
+
+
+### SpringBoot 从入门到实战
+
+#### 第三章
+1. 计划任务  
+  @EnableScheduling    @Scheduled  
+  cron表达式   fixDelay  fixRate（每隔指定毫秒运行任务）  
+
+- 条件注解@Conditional:
+   - 根据满足某一特定条件创建一个特定的bean.
+   - 通过实现Condition接口，并重写其matches方法来构造判断条件。  
+
+- 组合注解和元注解  
+  元注解可以组合成组合注解
+
+- @Enable*:   开启对 '  ' 的支持
+
+- produces可定制返回的response的媒体类型和字符集。
+@RequestMapping(produces="text/plain;charset=UTF-8")  
+@RequestMapping(produces="application/json;charset=UTF-8")  
+
+
+
+
+### Maven
+软件项目管理工具，基于项目对象模型（Project Object Model,POM)
+用来管理项目的依赖，编译，文档等信息。
+
 
 ### 区别
 `Spring`:依赖注入框架  
