@@ -22,3 +22,5 @@
  `systemctl get-default` <br>
  设置当前默认的设置 <br>
  `systemcltl set-default graphical.target`
+- 查看ip地址
+ `ifconfig`

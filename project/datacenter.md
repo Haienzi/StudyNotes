@@ -135,13 +135,17 @@ dao:
 shrio service配置为自己电脑的ip地址，端口号和tomcat的端口号保持一致。tomcat启动时路径配置为shrio service保持一致。
 3. EMPI（Enterprise Master Patient index)  
  患者主索引：患者基本信息检索目录,主要用途是在一个复杂的医疗系统中，通过唯一的患者标识将多个医疗信息系统有效的关联在一起。。以实现各个系统之间的互联互通，保证对同一个患者，分布在不同系统中的个人信息采集的完整性和准确性。建立患者主索引是实现大型医院内部系统集成，医院集团内资源共享，以及建立居民健康档案实现区域医疗共享的必要条件。
- 4. AlarmPersonImpl ->dto.getSearch();
+4. AlarmPersonImpl ->dto.getSearch();
  dto.getSearch()?获取传输对象中的sql语句
 save():首先判断数据库中是否存在该用户
 
 5. CheckUtil作用？
    CloneUtil作用？
 
+6. BaseController类中  
+   pageDraw?  
+   ResponseEntity?  
+   ModelMap?
 
 
 

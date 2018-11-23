@@ -6,8 +6,11 @@
 
 #### 第二章
 - Docker镜像：面向docker引擎的只读模板，包含了文件系统。
-- 
+- 容器：镜像+可读写层 与镜像的唯一区别在于容器最上面的那一层是可读可写的。
+- 运行态的容器:一个可读写的文件系统加上隔离的进程空间和包含其中的进程。
 
+#### 第三章 第四章
+- 保存的镜像和提交的容器的区别？
 
 
 
@@ -20,6 +23,8 @@
   `docker  images centos`
 - 创建容器<br>
 `docker create <image-id>`
+- 重命名容器
+`docker rename old-name new-name`
 - 开启容器 创建进程隔离空间<br>
 `docker start <container-id>`
 - 创建并运行容器<br>
@@ -50,6 +55,8 @@
 `docker search image-name`
 - 下载镜像  
 `docker pull image-name`
+- 下载指定版本的镜像  
+`docker pull image-name:14.04`
 - 启动镜像  
 > 容器是在镜像的基础上运行的，一旦容器启动了，我们就可以登录到容器中，安装自己所需的软件或者应用程序。
 
@@ -82,8 +89,8 @@
  `docker attach container-id`
 - 从容器里面拷贝文件到宿主机(在宿主机执行命令)  
 将容器里的test.js文件拷贝到宿主机opt目录下  
-`docker cp container-name：/usr/test.js /opt`
+`docker cp container-name：/usr/test.js /opt/`
 - 从宿主机里面拷贝文件到容器(在宿主机执行命令)  
 将宿主机里的test.js文件拷贝到容器opt目录下  
-`docker cp  /opt container-name：/usr/test.js`
+`docker cp  /opt/ container-name：/usr/test.js`
 >注意：前提是目录已经存在 创建目录命令：mkdir dirname
