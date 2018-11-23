@@ -19,9 +19,33 @@
 
 - @Enable*:   开启对 '  ' 的支持
 
-- produces可定制返回的response的媒体类型和字符集。
-@RequestMapping(produces="text/plain;charset=UTF-8")  
-@RequestMapping(produces="application/json;charset=UTF-8")  
+- produces可定制返回的response的媒体类型和字符集。  
+  @RequestMapping(produces="text/plain;charset=UTF-8")    
+  @RequestMapping(produces="application/json;charset=UTF-8")  
+
+#### 第六章
+1. 使用xml配置  
+   @ImportResource 来加载xml配置。  
+   @ImportResource ({"classpath:some-context.xml","classpath:another-context.xml"})
+- 命令行参数配置
+  jar包运行：java -jar xx.jar
+  修改端口号： java -jar xx.jar --server.port=9090
+- 注入properties文件里的值的方式：
+  在常规spring环境下，@PropertySource指明properties文件的位置，然后通过@Value注入值。  
+  在Spring Boot环境下，只需在application.properties定义属性，直接使用@Value注入即可。
+
+#### 第八章 Spring Data
+
+- jpa
+
+- MongoDB：
+  > https://www.mongodb.com/cn  
+  
+  敏捷开发，开源数据库  
+
+- Hadoop：能够对大量数据进行分布式处理的软件架构  
+
+- redis：开源，支持网络，基于内存，可选持久性的键值对存储数据库
 
 
 
@@ -35,6 +59,17 @@
 `Spring`:依赖注入框架  
 `Spring MVC`：基于Servlet的一个MVC开发框架主要解决Web开发的问题，配置复杂xml，JavaConfig,servlet处理繁琐。  
 Spring Boot 简化了配置流程，专注于为服务接口方面的开发和前端解耦。
+
+### 扩展
+1. @Bean和@Component的区别  
+   > https://www.jianshu.com/p/3fbfbb843b63
+
+   @Component注解表明一个类会作为组件类，并告知spring要为这个类创建bean。  
+   @Bean注解告诉Spring这个方法会返回一个对象，这个对象要注册为Spring应用上下文中的Bean.通常方法体中包含了最终产生Bean实例的逻辑。
+
+
+
+
 
 ### 注解
 - `@ComponentScan` 告诉Spring从哪里可以找到bean,来定义那些包需要被扫描。用于扫描指定包下的类。  
