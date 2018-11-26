@@ -40,7 +40,7 @@
 
 - MongoDB：
   > https://www.mongodb.com/cn  
-  
+
   敏捷开发，开源数据库  
 
 - Hadoop：能够对大量数据进行分布式处理的软件架构  
@@ -155,7 +155,7 @@ xml和java对象互相转化
    @PathVariable("username")
 
 - @Bean 作用到方法上告诉spring 可以从这个方法中得到一个bean
-
+- @Data 需要提前配置好插件lombok,为类提供读写属性
 
 
 
