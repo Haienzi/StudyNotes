@@ -21,10 +21,15 @@
  - 不支持线程同步，即任一时刻可以有多个线程同时写HashMap，会导致数据的不一致。  
  - Collections的synchronizedMap方法使HashMap具有同步的能力。  
 
-
 2. LinkedHashMap  
 内部通过一个双向链表使元素有序  
 https://www.cnblogs.com/xiaoxi/p/6170590.html    
+
+3. CaseInsensitiveMap 不区分大小写的无序map
+   "Name"和"name"会被视为相同的键key
+4. LinkedCaseInsensitiveMap 不区分大小写的有序map
+
+
 
 
 #### 数据库操作
