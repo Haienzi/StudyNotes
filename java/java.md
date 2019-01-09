@@ -30,7 +30,14 @@ https://www.cnblogs.com/xiaoxi/p/6170590.html
 4. LinkedCaseInsensitiveMap 不区分大小写的有序map
 
 
+#### 注解
 
+- `@PostConstruct`：javaEE5开始，修饰的方法会在服务器加载Servlet的时候运行，并且只会被
+服务器调用一次，类似于Servlet的init()方法，会在构造函数之后，init()之前运行。
+
+- `@PreDestroy`:javaEE5开始,修饰的方法会在服务器卸载Servlet的时候运行，并且只会被服务器
+调用一次，类似于Servlet的destroy()方法。被@PreDestroy修饰的方法会在destroy()方法之后
+运行，在Servlet被彻底卸载之前。
 
 #### 数据库操作
 https://www.cnblogs.com/chinafine/articles/1847205.html        
@@ -67,3 +74,13 @@ int类型的默认值是0，integer类型的默认值为null.
 
 - CLOB(Character Large Object)  
 SQL中内置类型，将字符大对象存储为数据库表某一行中的一个列值。
+
+- queryForObject(String sql，Object[] args,class<T> requiredType)
+ ```
+ JdbcTemplate jdbcTemplate = new JdbcTemplate();
+ String sql = ”select count(*) from user”;  
+ //queryForObject()方法中，如果需要返回的是int类型，就写Integer.class,需要返回long类型就写long.class.  
+ int count = jdbcTemplate.queryForObject(sql,Interger.Class);
+ ```
+
+-
