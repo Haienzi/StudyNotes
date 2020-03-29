@@ -1,0 +1,5 @@
+1. 查找端口占用的进程信息
+`netstat -ano`
+`netstat -ano | findstr 1099`
+2. 关闭对应的进程信息
+`taskkill -f -pid 17380`

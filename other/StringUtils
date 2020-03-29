@@ -1,0 +1,7 @@
+### org.apache.commons.lang.StringUtils
+
+` public static boolean isEmpty(String str)`
+判断某字符串是否为空 为空的标准是str==null或str.length()==0
+注意在StringUtils中空格作非空处理
+`public static boolean isBlank(String str)`
+判断某字符串是否为空或长度为0或由空白符(whitespace)构成

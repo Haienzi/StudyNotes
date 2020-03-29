@@ -1,32 +1,3 @@
-## JAVA知识点
-
-#### 泛型
-1. Public < T > T success(){…}  
-第一个<T>表明该方法时泛型方法  
-第二个T表明该方法的返回值类型是泛型。
-
-
-#### 概念
-1. Java Bean：有默认构造方法，只有set,get方法的java类的对象。  
-定义了一组规则，遵循此规则的平常的java对象。  
- - 实现Serializable接口。  
- - 提供无参数的构造函数  
- - 提供getter和setter方法访问它的属性。
-
-#### 集合
-1. HashMap
- - 根据键的hashCode值存取数据，键不允许重复，但是值允许重复。
- - 可以根据键直接获取它的值，具有很快的访问速.  
- - 最多允许一条记录的键为null,允许多条记录的值为null.    
- - 不支持线程同步，即任一时刻可以有多个线程同时写HashMap，会导致数据的不一致。  
- - Collections的synchronizedMap方法使HashMap具有同步的能力。  
-
-
-2. LinkedHashMap  
-内部通过一个双向链表使元素有序  
-https://www.cnblogs.com/xiaoxi/p/6170590.html    
-
-
 #### 数据库操作
 https://www.cnblogs.com/chinafine/articles/1847205.html        
 
@@ -62,3 +33,13 @@ int类型的默认值是0，integer类型的默认值为null.
 
 - CLOB(Character Large Object)  
 SQL中内置类型，将字符大对象存储为数据库表某一行中的一个列值。
+
+- queryForObject(String sql，Object[] args,class<T> requiredType)
+ ```
+ JdbcTemplate jdbcTemplate = new JdbcTemplate();
+ String sql = ”select count(*) from user”;  
+ //queryForObject()方法中，如果需要返回的是int类型，就写Integer.class,需要返回long类型就写long.class.  
+ int count = jdbcTemplate.queryForObject(sql,Interger.Class);
+ ```
+
+-

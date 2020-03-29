@@ -4,11 +4,19 @@
 
 
 ### SpringBoot 从入门到实战
+ 在应用运行的时候升级软件，无需重新启动的方式，热部署和热加载（热启动）。  
+ 1. 热部署就是在服务器运行的时候重新部署项目。
+ 2. 热加载就是在运行时重新加载class，从而升级应用
+
 
 #### 第三章
 1. 计划任务  
   @EnableScheduling    @Scheduled  
-  cron表达式   fixDelay  fixRate（每隔指定毫秒运行任务）  
+  - cron表达式     
+  - fixDelay（这个周期是以上一个调用任务的完成时间为基准的，在上一个任务完成后，
+  以一个固定延迟时间执行）    
+  - fixRate（每隔指定毫秒运行任务，这个周期是以上一个任务开始时间问基准）     
+  - initialDelay(指定一个初始延迟表示该方法在第一次被调用执行之前等待的毫秒数)  
 
 - 条件注解@Conditional:
    - 根据满足某一特定条件创建一个特定的bean.
@@ -48,6 +56,11 @@
 - redis：开源，支持网络，基于内存，可选持久性的键值对存储数据库
 
 
+### applicationContextAware
+在某些特殊的情况下，bean需要实现某个功能，但该功能必须借助于Spring容器才可以实现，此时就必须让该bean先获取Spring容器，然后借助于Spring容器实现该功能。为了让bean获取它所在的Spring容器，可以让该bean是实现ApplicationContextAware接口。
+通过其它类引用它以操作spring容器以及其中的bean实例。  
+- ApplicationContext
+- Bean
 
 
 ### Maven
@@ -130,12 +143,15 @@ private String var;
 ```
 以上声明指导spring根据key去属性配置文件查找value，如果没找到，则使用default作为默认值。
 - `@Transactional(readOnly=true)`:只读事务
-从这一点设置的时间点开始到这个事务结束的过程中，其他事务所提交的数据该事务看不到。查询中不会出现别人再时间点a之后提交的数据。
+从这一点设置的时间点开始到这个事务结束的过程中，其他事务所提交的数据该事务看不到。查询中
+不会出现别人再时间点a之后提交的数据。
 - `@XmlAccessorType(XmlAccessorType.NONE)`
 xml和java对象互相转化
--  @Repository,作用于持久层表明该类是用来执行数据库相关的操作，作为数据库的bean来使用，可以直接对数据库进行操作
+-  @Repository,作用于持久层表明该类是用来执行数据库相关的操作，作为数据库的bean来使用，
+可以直接对数据库进行操作
 
-- @PathVariable: 微博两个不同用户的个人主页对应两个不同的URL,对于这个用户则可以用变量来表示。
+- @PathVariable: 微博两个不同用户的个人主页对应两个不同的URL,对于这个用户则可以用变量
+来表示。
  - 定义url变量规则
    @RequestMapping("/users/{username}")
    {username}就是定义的变量部分
@@ -150,28 +166,28 @@ xml和java对象互相转化
        return "user" + username;
    }
     ```
-   在上述例子中，当@Controller处理HTTP请求时，userProfile的参数username会自动设置为URL中对应变量username（同名赋值）的值  
-   也可以指定@PathVariable使用URL中的哪一个变量
+   在上述例子中，当@Controller处理HTTP请求时，userProfile的参数username会自动设置为
+   URL中对应变量username（同名赋值）的值，也可以指定@PathVariable使用URL中的哪一个变量
    @PathVariable("username")
 
 - @Bean 作用到方法上告诉spring 可以从这个方法中得到一个bean
 - @Data 需要提前配置好插件lombok,为类提供读写属性
 
 
-
-
-
-
 ### JAXB
 https://blog.csdn.net/sd4015700/article/details/39474893
 Java Architecture for XML Binding  
 java对象和xml互相转换。
-是一项可以根据XML Schema产生Java类的技术。该过程中，JAXB也提供了将XML实例文档反向生成Java对象树的方法，并能将Java对象树的内容重新写到XML实例文档。从另一方面来讲，JAXB提供了快速而简便的方法将XML模式绑定到Java表示，从而使得Java开发者在Java应用程序中能方便地结合XML数据和处理函数。
+是一项可以根据XML Schema产生Java类的技术。该过程中，JAXB也提供了将XML实例文档反向生成  
+Java对象树的方法，并能将Java对象树的内容重新写到XML实例文档。从另一方面来讲，JAXB提供了  
+快速而简便的方法将XML模式绑定到Java表示，从而使得Java开发者在Java应用程序中能方便地结合  
+XML数据和处理函数。
 
 ### 集成数据库连接池druid
 #### 基本
 
-建立数据库连接是耗时和耗费资源的行为，所以通过连接池预先同数据库建立一些连接，放在内存中，应用程序需要建立数据库连接时直接到连接池中申请一个就行，用完后再放回。
+建立数据库连接是耗时和耗费资源的行为，所以通过连接池预先同数据库建立一些连接，放在内存中  
+应用程序需要建立数据库连接时直接到连接池中申请一个就行，用完后再放回。  
 > https://blog.csdn.net/yanguo110/article/details/68944659
 
 - 针对所有sql的监控，运行效率。
